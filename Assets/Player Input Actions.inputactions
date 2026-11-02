@@ -1,6 +1,58 @@
 {
-    "version": 0,
+    "version": 1,
     "name": "Player Input Actions",
-    "maps": [],
+    "maps": [
+        {
+            "name": "Player Actions",
+            "id": "8b39da27-4bd1-4290-8683-60493e2ebb8b",
+            "actions": [
+                {
+                    "name": "Shift",
+                    "type": "Button",
+                    "id": "15894358-0eb9-45db-9e87-2edd1d983a81",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "c82a0a10-4582-4e59-a101-c68e1636492f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shift",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "5d468675-8c60-472e-82e1-3f7d87a993c5",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shift",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "7f83f0c5-3a59-4f91-b9e5-9610c808bfa0",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shift",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
     "controlSchemes": []
 }
