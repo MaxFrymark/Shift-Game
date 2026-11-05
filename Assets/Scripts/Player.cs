@@ -43,4 +43,12 @@ public class Player : MonoBehaviour
             _isMoving = false;
         }
     }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Block"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

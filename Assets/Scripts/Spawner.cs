@@ -17,6 +17,19 @@ public class Spawner : MonoBehaviour
     
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer >= spawnInterval)
+        {
+            SpawnObstacle();
+            timer = 0f;
+        }
+    }
+    
+    private void SpawnObstacle()
+    {
+        Obstacle obstacle = pool.GetObstacle("Block");
+        obstacle.transform.position = lanes[Random.Range(0, lanes.Length)];
+        obstacle.gameObject.SetActive(true);
+        obstacle.StartMoving(speed);
     }
 }
