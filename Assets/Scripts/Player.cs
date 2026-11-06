@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public void ShiftLane(int shiftDirection)
     {
         int newLane = _currentLane + shiftDirection;
-        Debug.Log($"Shifting lane by {shiftDirection}, new lane: {newLane}");
+        //Debug.Log($"Shifting lane by {shiftDirection}, new lane: {newLane}");
         if (newLane < 0 || newLane >= _lanes.Length)
             return;
         SetNewLane(newLane);
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     private void SetNewLane(int newLane)
     {
-        Debug.Log($"Moving to lane {newLane}");
+        //Debug.Log($"Moving to lane {newLane}");
         _currentLane = newLane;
         _targetPosition = _lanes[newLane];
         _isMoving = true;
