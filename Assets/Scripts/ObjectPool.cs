@@ -10,6 +10,7 @@ public class ObjectPool : MonoBehaviour
     public Obstacle GetObstacle(string tag)
     {
         Obstacle ob = null;
+        Debug.Log("Tag: " + tag);
         foreach (var obstacle in obstacles)
         {
             if (obstacle.CompareTag(tag) && !obstacle.gameObject.activeSelf)

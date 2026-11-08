@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] ScoreCounter _scoreCounter;
+    
     private readonly Vector2[] _lanes = new []{new Vector2(-1.5f, -4), new Vector2(0, -4), new Vector2(1.5f, -4)};
     private int _currentLane = 1;
     
@@ -49,6 +51,11 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Block"))
         {
             gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("Gem"))
+        {
+            collision.gameObject.SetActive(false);
+            _scoreCounter.IncreaseScore();
         }
     }
 }

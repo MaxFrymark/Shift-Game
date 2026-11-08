@@ -12,11 +12,11 @@ public class Spawner : MonoBehaviour
     
     private float timer = 0f;
     
-    private List<int> lanesUsed = new List<int>();
+    private ItemHolder itemHolder;
     
     void Start()
     {
-        
+        itemHolder = new ItemHolder(spawnChance);
     }
     
     void Update()
@@ -31,31 +31,22 @@ public class Spawner : MonoBehaviour
 
     private void GenerateRow()
     {
-        lanesUsed.Clear();
-        for(int i = 0; i < lanes.Length; i++)
+        ObstacleTag[] row = itemHolder.GetNextRow();
+        for(int i = 0; i < row.Length; i++)
         {
-            if(Random.value < spawnChance)
+            if (row[i] != ObstacleTag.Empty)
             {
-                lanesUsed.Add(i);
+                SpawnObstacle(i, row[i]);
             }
-        }
-        if (lanesUsed.Count == 0) {return;}
-        if (lanesUsed.Count > 2)
-        {
-            lanesUsed.RemoveAt(Random.Range(0, lanesUsed.Count));
-        }
-        
-        foreach (int lane in lanesUsed)
-        {
-            SpawnObstacle(lane);
         }
     }
     
-    private void SpawnObstacle(int lane)
+    private void SpawnObstacle(int lane, ObstacleTag tag)
     {
-        Obstacle obstacle = pool.GetObstacle("Block");
+        Obstacle obstacle = pool.GetObstacle(tag.ToString());
         obstacle.transform.position = lanes[lane];
         obstacle.gameObject.SetActive(true);
+        obstacle.transform.SetParent(transform);
         obstacle.StartMoving(speed);
     }
 }
