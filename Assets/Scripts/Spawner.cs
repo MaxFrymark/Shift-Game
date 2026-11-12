@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private float speed = 8f;
+    [SerializeField] private float minSpeed = 8f;
+    
     [SerializeField] private ObjectPool pool;
+    
     [SerializeField] private float spawnInterval = 0.5f;
+    
     [SerializeField] private float spawnChance = 0.8f;
     
-    private Vector2[] lanes = new Vector2[3] { new Vector2(-1.5f, 6f), new Vector2(0f, 6f), new Vector2(1.5f, 6f) };
+    private Vector2[] lanes = new Vector2[3] { new Vector2(-1f, 6f), new Vector2(0f, 6f), new Vector2(1f, 6f) };
     
     private float timer = 0f;
     
@@ -47,6 +50,6 @@ public class Spawner : MonoBehaviour
         obstacle.transform.position = lanes[lane];
         obstacle.gameObject.SetActive(true);
         obstacle.transform.SetParent(transform);
-        obstacle.StartMoving(speed);
+        obstacle.StartMoving(minSpeed);
     }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] ScoreCounter _scoreCounter;
+    [SerializeField] AudioSource _swooshEffect;
     
-    private readonly Vector2[] _lanes = new []{new Vector2(-1.5f, -4), new Vector2(0, -4), new Vector2(1.5f, -4)};
+    private readonly Vector2[] _lanes = new []{new Vector2(-1f, -4), new Vector2(0, -4), new Vector2(1f, -4)};
     private int _currentLane = 1;
     
     private bool _isMoving = false;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         //Debug.Log($"Moving to lane {newLane}");
         _currentLane = newLane;
         _targetPosition = _lanes[newLane];
+        _swooshEffect.Play();
         _isMoving = true;
     }
 
