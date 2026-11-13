@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] ScoreCounter _scoreCounter;
     [SerializeField] AudioSource _swooshEffect;
+    [SerializeField] private AudioClip[] _collisionSounds;
     
     private readonly Vector2[] _lanes = new []{new Vector2(-1f, -4), new Vector2(0, -4), new Vector2(1f, -4)};
     private int _currentLane = 1;
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.CompareTag("Gem"))
         {
             collision.gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(_collisionSounds[0], Camera.main.transform.position);
             _scoreCounter.IncreaseScore();
         }
     }
