@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] ScoreCounter _scoreCounter;
     [SerializeField] AudioSource _swooshEffect;
     [SerializeField] private AudioClip[] _collisionSounds;
+    [SerializeField] private GameObject _gameOverScreen;
     
     private readonly Vector2[] _lanes = new []{new Vector2(-1f, -4), new Vector2(0, -4), new Vector2(1f, -4)};
     private int _currentLane = 1;
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     private bool _isMoving = false;
     private Vector2 _targetPosition;
     private float _moveSpeed = 20f;
+
+    private InputHandler _inputHandler;
 
     private void Update()
     {
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
 
     public void SubscribeToInputHandler(InputHandler inputHandler)
     {
+        this._inputHandler = inputHandler;
         inputHandler.OnShiftLane += ShiftLane;
     }
 
@@ -59,6 +63,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Block"))
         {
+            _gameOverScreen.SetActive(true);
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Gem"))
@@ -67,5 +72,10 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(_collisionSounds[0], Camera.main.transform.position);
             _scoreCounter.IncreaseScore();
         }
+    }
+
+    private void OnDisable()
+    {
+        _inputHandler.OnShiftLane -= ShiftLane;
     }
 }

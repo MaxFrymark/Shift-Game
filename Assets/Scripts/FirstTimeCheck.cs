@@ -22,4 +22,9 @@ public class FirstTimeCheck : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public static void SetFirstTime(bool value)
+    {
+        isFirstTime = value;
+    }
 }
