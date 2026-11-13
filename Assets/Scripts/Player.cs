@@ -22,7 +22,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ShiftLane(int shiftDirection)
+    public void SubscribeToInputHandler(InputHandler inputHandler)
+    {
+        inputHandler.OnShiftLane += ShiftLane;
+    }
+
+    private void ShiftLane(int shiftDirection)
     {
         int newLane = _currentLane + shiftDirection;
         //Debug.Log($"Shifting lane by {shiftDirection}, new lane: {newLane}");
@@ -30,7 +35,8 @@ public class Player : MonoBehaviour
             return;
         SetNewLane(newLane);
     }
-
+ 
+    
     private void SetNewLane(int newLane)
     {
         //Debug.Log($"Moving to lane {newLane}");

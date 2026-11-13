@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
     
     [SerializeField] private float spawnChance = 0.8f;
     
-    private Vector2[] lanes = new Vector2[3] { new Vector2(-1f, 6f), new Vector2(0f, 6f), new Vector2(1f, 6f) };
+    private Vector2[] lanes = new Vector2[3] { new Vector2(-1f, 5.5f), new Vector2(0f, 5.5f), new Vector2(1f, 5.5f) };
     
     private float timer = 0f;
     

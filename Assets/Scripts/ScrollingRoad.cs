@@ -11,7 +11,7 @@ public class ScrollingRoad : MonoBehaviour
     
     private Vector3 _roadPosition = new Vector3(0, 13, 0);
     private float _roadLowerBound = -13f;
-    private float _speed = 8f;
+    private float _speed = 6f;
     
     void Start()
     {

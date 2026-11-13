@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private Player player;
+    [SerializeField] private OpeningMenu openingMenu;
+    
+    public delegate void ShiftLaneDelegate(int shiftDirection);
+    public event ShiftLaneDelegate OnShiftLane;
     
     private PlayerInputActions playerInputActions;
     
@@ -14,12 +18,13 @@ public class InputHandler : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.PlayerActions.Shift.performed += OnShiftPressed;
         playerInputActions.PlayerActions.Enable();
+        player.SubscribeToInputHandler(this);
+        openingMenu.SubscribeToInputHandler(this);
     }
     
     private void OnShiftPressed(InputAction.CallbackContext context)
     {
         float value = context.ReadValue<float>();
-        int shiftDirection = (int)value;
-        player.ShiftLane(shiftDirection);
+        OnShiftLane?.Invoke((int)value);
     }
 }
