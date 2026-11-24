@@ -205,8 +205,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1352,8 +1352,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   minSpeed: 6
   pool: {fileID: 2033554368}
-  spawnInterval: 0.75
-  spawnChance: 0.3
+  maxSpawnInterval: 0.75
+  minSpawnInterval: 0.4
+  maxSpawnIntervalDecrease: 0.2
+  maxSpawnIntervalIncrease: 0.1
+  minSpawnChance: 0.2
+  maxSpawnChance: 0.6
+  maxSpawnChanceIncrease: 0.2
+  maxSpawnChanceDecrease: 0.1
+  baseSpeedChangeInterval: 8
+  speedChangeIntervalRange: 3
 --- !u!4 &1104423069
 Transform:
   m_ObjectHideFlags: 0
@@ -1861,8 +1869,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8333431812199604210}
   - component: {fileID: 8940117967163897321}
   - component: {fileID: 7197609055000244108}
-  - component: {fileID: 8854954004844327944}
+  - component: {fileID: 5705862238480462121}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Gem
@@ -135,8 +135,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &8854954004844327944
-PolygonCollider2D:
+--- !u!61 &5705862238480462121
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,7 +169,7 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.005959213, y: -0.02645421}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,17 +179,5 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.14877957, y: 0.24525473}
-      - {x: -0.17006442, y: 0.19312}
-      - {x: -0.3280641, y: 0.12224007}
-      - {x: -0.3410283, y: 0.06738153}
-      - {x: -0.23068601, y: -0.26012278}
-      - {x: -0.23068601, y: -0.26012278}
-      - {x: -0.19368847, y: -0.28320053}
-      - {x: 0.0005545616, y: -0.33101803}
-      - {x: 0.28281584, y: -0.2622974}
-      - {x: 0.34189594, y: -0.025840081}
-      - {x: 0.31809366, y: 0.13700408}
-  m_UseDelaunayMesh: 1
+  m_Size: {x: 0.68978965, y: 0.62378836}
+  m_EdgeRadius: 0
